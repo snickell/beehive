@@ -36,10 +36,6 @@ const hiveEdges: Edge[] = [
   { id: 'worker-b-scout', source: 'worker-b', target: 'scout' },
 ]
 
-  setTimeout(() => {
-    console.error("BARF")
-  }, 0);
-
 function Beehive() {
   const nodes = useMemo(() => hiveNodes, [])
   const edges = useMemo(() => hiveEdges, [])
