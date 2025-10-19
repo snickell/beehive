@@ -1,0 +1,1 @@
+Run tests with `npm run test:ci`, as `npm run test` will run in watch mode.
