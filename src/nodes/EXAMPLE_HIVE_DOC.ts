@@ -1,3 +1,4 @@
+import type { HiveDoc } from "./HiveDoc"
 import { JS } from "./js"
 
 export default {
@@ -34,4 +35,4 @@ export default {
     { id: 'worker-a-scout', source: 'worker-a', target: 'scout' },
     { id: 'worker-b-scout', source: 'worker-b', target: 'scout' },
   ]
-}
+} as HiveDoc

@@ -20,22 +20,25 @@ import '@xyflow/react/dist/style.css'
 import './Beehive.css'
 
 import { nodeTypes } from '../nodes/nodeTypes'
-import EXAMPLE_HIVE_DOC from '../nodes/EXAMPLE_HIVE_DOC'
+import type { HiveDoc } from '../nodes/HiveDoc'
 
+type BeehiveProps = {
+  hiveDoc: HiveDoc
+}
 
-function Beehive() {
+function Beehive({ hiveDoc }: BeehiveProps) {
   return (
     <ReactFlowProvider>
-      <BeehiveInner />
+      <BeehiveInner hiveDoc={hiveDoc} />
     </ReactFlowProvider>
   )
 }
 
-function BeehiveInner() {
+function BeehiveInner({ hiveDoc }: BeehiveProps) {
   const reactFlowInstance = useReactFlow()
 
-  const [nodes, setNodes] = useState<Node[]>(EXAMPLE_HIVE_DOC.nodes)
-  const [edges, setEdges] = useState<Edge[]>(EXAMPLE_HIVE_DOC.edges)
+  const [nodes, setNodes] = useState<Node[]>(hiveDoc.nodes)
+  const [edges, setEdges] = useState<Edge[]>(hiveDoc.edges)
 
   const onNodesChange = useCallback(
     (changes: NodeChange<Node>[]) => {

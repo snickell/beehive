@@ -1,13 +1,14 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import Beehive from './Beehive'
 import { JS } from '../nodes/js'
+import EXAMPLE_HIVE_DOC from '../nodes/EXAMPLE_HIVE_DOC'
+import Beehive from './Beehive'
 
 describe('Beehive', () => {
   it('renders the Beehive', () => {
     render(
       <div style={{ width: '1024px', height: '768px' }}>
-        <Beehive />
+        <Beehive hiveDoc={EXAMPLE_HIVE_DOC} />
       </div>,
     )
 
@@ -17,7 +18,7 @@ describe('Beehive', () => {
   it('renders an editable JavaScript node', () => {
     render(
       <div style={{ width: '1024px', height: '768px' }}>
-        <Beehive />
+        <Beehive hiveDoc={EXAMPLE_HIVE_DOC} />
       </div>,
     )
 
