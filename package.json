@@ -3,17 +3,21 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "engines": {
-    "node": ">=24.10.0"
-  },
   "scripts": {
-    "ci": "npm run lint && npm run test:ci",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "npx tsc -b && eslint .",
     "preview": "vite preview",
     "test": "vitest",
     "test:ci": "vitest run"
+  },
+  "engines": {
+    "node": ">=24.10.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm"
+    }
   },
   "dependencies": {
     "@xyflow/react": "^12.8.6",
