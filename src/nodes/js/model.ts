@@ -1,4 +1,4 @@
-import type { Node as FlowNode, XYPosition } from '@xyflow/react'
+import type { Node, XYPosition } from '@xyflow/react'
 
 export const JS_NODE_TYPE = 'js'
 
@@ -6,7 +6,7 @@ export type JSNodeData = {
   code: string
 }
 
-export type JSNode = FlowNode<JSNodeData, typeof JS_NODE_TYPE>
+export type JSNode = Node<JSNodeData, typeof JS_NODE_TYPE>
 
 export const DEFAULT_JS_SNIPPET = `function greet(name) {
   return \`Hello, \${name}!\`
