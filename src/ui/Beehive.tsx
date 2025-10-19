@@ -18,9 +18,7 @@ import {
 import '@xyflow/react/dist/style.css'
 import './Beehive.css'
 
-type HiveNode = Node<{ label: string }>
-
-const hiveNodes: HiveNode[] = [
+const hiveNodes = [
   {
     id: 'queen',
     position: { x: 0, y: 0 },
@@ -43,20 +41,28 @@ const hiveNodes: HiveNode[] = [
   },
 ]
 
-const hiveEdges: Edge[] = [
+const hiveEdges= [
   { id: 'queen-worker-a', source: 'queen', target: 'worker-a' },
   { id: 'queen-worker-b', source: 'queen', target: 'worker-b' },
   { id: 'worker-a-scout', source: 'worker-a', target: 'scout' },
   { id: 'worker-b-scout', source: 'worker-b', target: 'scout' },
 ]
 
-function BeehiveContent() {
-  const [nodes, setNodes] = useState<HiveNode[]>(hiveNodes)
+function Beehive() {
+  return (
+    <ReactFlowProvider>
+      <BeehiveInner />
+    </ReactFlowProvider>
+  )
+}
+
+function BeehiveInner() {
+  const [nodes, setNodes] = useState<Node[]>(hiveNodes)
   const [edges, setEdges] = useState<Edge[]>(hiveEdges)
   const reactFlowInstance = useReactFlow()
   const onNodesChange = useCallback(
-    (changes: NodeChange<HiveNode>[]) => {
-      setNodes((snapshot) => applyNodeChanges<HiveNode>(changes, snapshot))
+    (changes: NodeChange<Node>[]) => {
+      setNodes((snapshot) => applyNodeChanges<Node>(changes, snapshot))
     },
     [],
   )
@@ -73,7 +79,6 @@ function BeehiveContent() {
     [],
   )
   const handleDump = useCallback(() => {
-    // Quick peek at the rendered flow structure for debugging.
     console.log(reactFlowInstance.toObject())
   }, [reactFlowInstance])
 
@@ -97,14 +102,6 @@ function BeehiveContent() {
         Dump flow
       </button>
     </div>
-  )
-}
-
-function Beehive() {
-  return (
-    <ReactFlowProvider>
-      <BeehiveContent />
-    </ReactFlowProvider>
   )
 }
 
