@@ -16,37 +16,12 @@ import {
   type Connection,
 } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
+
 import './Beehive.css'
 
-const hiveNodes = [
-  {
-    id: 'queen',
-    position: { x: 0, y: 0 },
-    data: { label: 'Queen Bee' },
-  },
-  {
-    id: 'worker-a',
-    position: { x: -180, y: 180 },
-    data: { label: 'Worker A' },
-  },
-  {
-    id: 'worker-b',
-    position: { x: 180, y: 180 },
-    data: { label: 'Worker B' },
-  },
-  {
-    id: 'scout',
-    position: { x: 0, y: 340 },
-    data: { label: 'Scout' },
-  },
-]
+import { nodeTypes } from '../nodes/nodeTypes'
+import EXAMPLE_HIVE_DOC from '../nodes/EXAMPLE_HIVE_DOC'
 
-const hiveEdges= [
-  { id: 'queen-worker-a', source: 'queen', target: 'worker-a' },
-  { id: 'queen-worker-b', source: 'queen', target: 'worker-b' },
-  { id: 'worker-a-scout', source: 'worker-a', target: 'scout' },
-  { id: 'worker-b-scout', source: 'worker-b', target: 'scout' },
-]
 
 function Beehive() {
   return (
@@ -57,9 +32,11 @@ function Beehive() {
 }
 
 function BeehiveInner() {
-  const [nodes, setNodes] = useState<Node[]>(hiveNodes)
-  const [edges, setEdges] = useState<Edge[]>(hiveEdges)
   const reactFlowInstance = useReactFlow()
+
+  const [nodes, setNodes] = useState<Node[]>(EXAMPLE_HIVE_DOC.nodes)
+  const [edges, setEdges] = useState<Edge[]>(EXAMPLE_HIVE_DOC.edges)
+
   const onNodesChange = useCallback(
     (changes: NodeChange<Node>[]) => {
       setNodes((snapshot) => applyNodeChanges<Node>(changes, snapshot))
@@ -88,6 +65,7 @@ function BeehiveInner() {
         nodes={nodes}
         edges={edges}
         fitView
+        nodeTypes={nodeTypes}
         proOptions={{ hideAttribution: true }}
         style={{ width: '100%', height: '100%' }}
         onNodesChange={onNodesChange}
