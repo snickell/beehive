@@ -31,7 +31,6 @@ const EXAMPLE_HIVE_DOC : HiveDoc = {
       id: 'hive',
       position: { x: -280, y: 140 },
       type: 'hive',
-      style: { width: 220, height: 220 },
       data: {
         hiveDoc: {
           version: 1,
