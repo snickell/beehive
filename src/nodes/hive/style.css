@@ -1,0 +1,42 @@
+.hive-node {
+  min-width: 240px;
+  max-width: 320px;
+  background: #16211c;
+  color: #f0fff4;
+  border-radius: 8px;
+  border: 1px solid #265339;
+  box-shadow: 0 10px 18px rgba(6, 18, 12, 0.25);
+  overflow: hidden;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  display: flex;
+  flex-direction: column;
+}
+
+.hive-node--selected {
+  border-color: #7ff0b8;
+  box-shadow: 0 0 0 2px rgba(127, 240, 184, 0.35);
+}
+
+.hive-node__header {
+  background: #1f3328;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hive-node__editor {
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  min-height: 150px;
+  resize: none;
+  line-height: 1.4;
+}
+
+.hive-node__editor:focus {
+  box-shadow: inset 0 0 0 1px #7ff0b8;
+}

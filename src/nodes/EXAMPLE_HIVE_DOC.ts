@@ -1,7 +1,8 @@
 import type { HiveDoc } from "./HiveDoc"
 import { JS } from "./js"
+import { Hive } from "./hive"
 
-export default {
+const EXAMPLE_HIVE_DOC : HiveDoc = {
   version: 1,
   nodes: [
     {
@@ -24,6 +25,24 @@ export default {
       position: { x: 0, y: 340 },
       data: { label: 'Scout' },
     },
+    {
+      id: 'hive',
+      position: { x: -280, y: 140 },
+      type: Hive.NODE_TYPE,
+      data: {
+        hiveDoc: {
+          version: 1,
+          nodes: [
+            {
+              id: 'baby-bee',
+              position: { x: 0, y: 0 },
+              data: { label: 'Baby Bee' },
+            },
+          ],
+          edges: [],
+        } as HiveDoc,
+      }
+    },
     JS.createNode({
       id: 'script',
       position: { x: 280, y: 140 },
@@ -35,4 +54,6 @@ export default {
     { id: 'worker-a-scout', source: 'worker-a', target: 'scout' },
     { id: 'worker-b-scout', source: 'worker-b', target: 'scout' },
   ]
-} as HiveDoc
+}
+
+export default EXAMPLE_HIVE_DOC
