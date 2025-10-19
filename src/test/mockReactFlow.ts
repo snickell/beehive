@@ -1,3 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
+//
 // We use JSDOM to run out tests. React Flow relies on some browser APIs not in JSDOM,
 // so we need to mock them.
 //
