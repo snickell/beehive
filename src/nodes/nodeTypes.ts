@@ -3,6 +3,6 @@ import { JS } from './js'
 import { Hive } from './hive'
 
 export const nodeTypes: NodeTypes = {
-  [JS.NODE_TYPE]: JS.View,
-  [Hive.NODE_TYPE]: Hive.View,
+  js: JS.View,
+  hive: Hive.View,
 }

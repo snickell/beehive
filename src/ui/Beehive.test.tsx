@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { JS } from '../nodes/js'
-import EXAMPLE_HIVE_DOC from '../nodes/EXAMPLE_HIVE_DOC'
+import EXAMPLE_HIVE_DOC, { DEFAULT_JS_SNIPPET } from '../nodes/EXAMPLE_HIVE_DOC'
 import Beehive from './Beehive'
 
 describe('Beehive', () => {
@@ -26,7 +25,7 @@ describe('Beehive', () => {
       name: /javascript code/i,
     })
 
-    expect(editor).toHaveValue(JS.DEFAULT_SNIPPET)
+    expect(editor).toHaveValue(DEFAULT_JS_SNIPPET)
 
     fireEvent.change(editor, {
       target: { value: 'console.log("Buzz!");' },

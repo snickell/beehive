@@ -1,6 +1,8 @@
 import type { HiveDoc } from "./HiveDoc"
-import { JS } from "./js"
-import { Hive } from "./hive"
+
+export const DEFAULT_JS_SNIPPET = `function greet(name) {
+  return \`Hello, \${name}!\`
+}`
 
 const EXAMPLE_HIVE_DOC : HiveDoc = {
   version: 1,
@@ -28,7 +30,8 @@ const EXAMPLE_HIVE_DOC : HiveDoc = {
     {
       id: 'hive',
       position: { x: -280, y: 140 },
-      type: Hive.NODE_TYPE,
+      type: 'hive',
+      style: { width: 220, height: 220 },
       data: {
         hiveDoc: {
           version: 1,
@@ -43,10 +46,12 @@ const EXAMPLE_HIVE_DOC : HiveDoc = {
         } as HiveDoc,
       }
     },
-    JS.createNode({
+    {
       id: 'script',
       position: { x: 280, y: 140 },
-    }),
+      type: 'js',
+      data: { code: DEFAULT_JS_SNIPPET },
+    },
   ],
   edges: [
     { id: 'queen-worker-a', source: 'queen', target: 'worker-a' },

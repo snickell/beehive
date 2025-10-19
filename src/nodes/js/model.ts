@@ -1,32 +1,7 @@
-import type { Node, XYPosition } from '@xyflow/react'
+import type { Node } from '@xyflow/react'
 
-export const JS_NODE_TYPE = 'js'
-
-export type JSNodeData = {
+export type JSNode = Node<{
   code: string
-}
+}>
 
-export type JSNode = Node<JSNodeData, typeof JS_NODE_TYPE>
 
-export const DEFAULT_JS_SNIPPET = `function greet(name) {
-  return \`Hello, \${name}!\`
-}`
-
-export type CreateJsNodeOptions = {
-  id: string
-  position: XYPosition
-  code?: string
-}
-
-export const createJsNode = ({
-  id,
-  position,
-  code = DEFAULT_JS_SNIPPET,
-}: CreateJsNodeOptions): JSNode => ({
-  id,
-  type: JS_NODE_TYPE,
-  position,
-  data: {
-    code,
-  },
-})

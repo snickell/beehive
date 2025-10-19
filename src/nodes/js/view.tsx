@@ -5,7 +5,7 @@ import {
   useReactFlow,
   type NodeProps,
 } from '@xyflow/react'
-import type { JSNode, JSNodeData } from './model.ts'
+import type { JSNode } from './model.ts'
 import './style.css'
 
 export function JsNodeView({ id, data, selected }: NodeProps<JSNode>) {
@@ -22,7 +22,7 @@ export function JsNodeView({ id, data, selected }: NodeProps<JSNode>) {
           return {
             ...node,
             data: {
-              ...(node.data as JSNodeData),
+              ...node.data,
               code: value,
             },
           }
