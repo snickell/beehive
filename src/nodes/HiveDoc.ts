@@ -6,6 +6,6 @@ type HiveNode = JSNode | Node
 
 export type HiveDoc = {
   version: 1
-  nodes: HiveNode[],
+  nodes: HiveNode[]
   edges: Edge[]
 }
