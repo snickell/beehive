@@ -5,7 +5,7 @@ export type JSData = {
 }
 export type JSNode = Node<JSData>
 
-export function run(jsData: JSData): void {
-  console.log(jsData)
+export function run(node: JSNode): void {
+  console.log(node)
   throw new Error('Method not yet implemented.')
 }
