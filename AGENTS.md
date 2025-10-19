@@ -1,1 +1,2 @@
-Run tests with `npm run test:ci`, as `npm run test` will run in watch mode.
+- Run tests with `npm run test:ci`, as `npm run test` will run in watch mode.
+- After making changes be sure to run `npm run lint` and `npm run test:ci`
