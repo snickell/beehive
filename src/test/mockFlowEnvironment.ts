@@ -1,7 +1,7 @@
 /* eslint-disable */
 // @ts-nocheck
 //
-// We use JSDOM to run out tests. React Flow relies on some browser APIs not in JSDOM,
+// We use JSDOM to run our tests. XY/Svelte Flow relies on some browser APIs not in JSDOM,
 // so we need to mock them.
 //
 // Remainder of file copied verbatim from: https://reactflow.dev/learn/advanced-use/testing
@@ -35,7 +35,7 @@ class DOMMatrixReadOnly {
 // Only run the shim once when requested
 let init = false;
  
-export const mockReactFlow = () => {
+export const mockFlowEnvironment = () => {
   if (init) return;
   init = true;
  
@@ -63,4 +63,16 @@ export const mockReactFlow = () => {
     width: 0,
     height: 0,
   });
+
+  if (!window.matchMedia) {
+    // @ts-ignore
+    window.matchMedia = (query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => false,
+    });
+  }
 };

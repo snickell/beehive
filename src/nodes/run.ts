@@ -1,4 +1,4 @@
-import type { Node } from '@xyflow/react'
+import type { Node } from '@xyflow/svelte'
 
 import { run as runJS, type JSNode } from './js/model.ts'
 import { run as runHive, type HiveNode } from './hive/model.ts'

@@ -1,6 +1,6 @@
-import type { NodeTypes } from '@xyflow/react'
-import { JsNodeView } from './js/view.tsx'
-import { HiveNodeView } from './hive/view.tsx'
+import type { NodeTypes } from '@xyflow/svelte'
+import JsNodeView from './js/view.svelte'
+import HiveNodeView from './hive/view.svelte'
 
 export const nodeTypes: NodeTypes = {
   js: JsNodeView,

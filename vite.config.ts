@@ -1,13 +1,17 @@
 /// <reference types="vitest/config" />
 
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { svelte } from '@sveltejs/vite-plugin-svelte'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [svelte()],
+  resolve: {
+    conditions: ['svelte', 'browser'],
+  },
   test: {
     environment: 'jsdom',
     setupFiles: './src/test/setupTests.ts',
+    css: true,
   },
 })
