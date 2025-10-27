@@ -1,4 +1,4 @@
-import type { Node } from '@xyflow/react'
+import type { Node } from '@xyflow/svelte'
 
 export type JSData = {
   code: string

@@ -1,4 +1,4 @@
-import type { Edge, Node } from '@xyflow/react'
+import type { Edge, Node } from '@xyflow/svelte'
 import type { JSNode } from './js/model.ts'
 import type { HiveNode } from './hive/model.ts'
 

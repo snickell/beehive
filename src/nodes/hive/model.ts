@@ -1,4 +1,4 @@
-import type { Node } from '@xyflow/react'
+import type { Node } from '@xyflow/svelte'
 import type { HiveDoc } from '../HiveDoc'
 
 export type HiveData = {
